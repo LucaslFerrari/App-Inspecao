@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Added responsive and table stylesheets */
+@import "./styles/theme.css";
+@import "./styles/helpers.css";
+@import "./styles/responsive.css";
+@import "./styles/tables.css";
+@import "./styles/modals.css";

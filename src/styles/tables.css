@@ -1,0 +1,363 @@
+/* Advanced responsive table styles for all screen sizes */
+
+/* Base table styling */
+.table-wrapper {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}
+
+.table-wrapper table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-wrapper thead {
+  background-color: #f3f4f6;
+}
+
+.table-wrapper th {
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #374151;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 2px solid #d1d5db;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.table-wrapper th:last-child {
+  border-right: none;
+}
+
+.table-wrapper td {
+  padding: 12px;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.875rem;
+}
+
+.table-wrapper td:last-child {
+  border-right: none;
+}
+
+.table-wrapper tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Zebra striping for readability */
+.table-wrapper tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+.table-wrapper tbody tr:hover {
+  background-color: #f3f4f6;
+}
+
+/* Responsive table for small screens - show labels and stack */
+@media (max-width: 640px) {
+  .table-responsive-mobile {
+    display: block;
+  }
+
+  .table-responsive-mobile thead {
+    display: none;
+  }
+
+  .table-responsive-mobile tbody {
+    display: block;
+  }
+
+  .table-responsive-mobile tr {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background: white;
+  }
+
+  .table-responsive-mobile td {
+    display: contents;
+  }
+
+  .table-responsive-mobile td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #374151;
+    word-break: break-word;
+  }
+}
+
+/* Tablet and up - normal table */
+@media (min-width: 641px) {
+  .table-responsive-mobile {
+    display: table;
+    width: 100%;
+  }
+
+  .table-responsive-mobile thead {
+    display: table-header-group;
+  }
+
+  .table-responsive-mobile tbody {
+    display: table-row-group;
+  }
+
+  .table-responsive-mobile tr {
+    display: table-row;
+  }
+
+  .table-responsive-mobile td {
+    display: table-cell;
+  }
+
+  .table-responsive-mobile td::before {
+    display: none;
+  }
+}
+
+/* Scrollable table container */
+.table-scroll-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+}
+
+.table-scroll-container table {
+  min-width: 100%;
+}
+
+/* Cell content alignment */
+.table-cell-center {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table-cell-right {
+  text-align: right;
+  vertical-align: middle;
+}
+
+.table-cell-nowrap {
+  white-space: nowrap;
+}
+
+/* Input and button sizing in tables */
+.table-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.table-input:focus {
+  outline: none;
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 2px rgba(28, 54, 89, 0.1);
+}
+
+.table-button {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.table-button:hover {
+  background-color: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+/* Fixed column widths for stability */
+.col-baliza {
+  width: 60px;
+  min-width: 60px;
+}
+
+.col-narrow {
+  width: 70px;
+  min-width: 70px;
+}
+
+.col-medium {
+  width: 100px;
+  min-width: 100px;
+}
+
+.col-auto {
+  width: auto;
+  min-width: 80px;
+}
+
+/* Tablet optimization */
+@media (min-width: 768px) {
+  .table-wrapper th,
+  .table-wrapper td {
+    padding: 14px;
+    font-size: 0.875rem;
+  }
+
+  .col-baliza {
+    width: 70px;
+    min-width: 70px;
+  }
+
+  .col-narrow {
+    width: 80px;
+    min-width: 80px;
+  }
+
+  .col-medium {
+    width: 120px;
+    min-width: 120px;
+  }
+}
+
+/* Desktop optimization */
+@media (min-width: 1024px) {
+  .table-wrapper th,
+  .table-wrapper td {
+    padding: 16px;
+    font-size: 0.9rem;
+  }
+
+  .col-baliza {
+    width: 80px;
+    min-width: 80px;
+  }
+
+  .col-narrow {
+    width: 100px;
+    min-width: 100px;
+  }
+
+  .col-medium {
+    width: 140px;
+    min-width: 140px;
+  }
+}
+
+/* ===== Sticky header + colunas fixas para a tabela de Rolos (Página 1) ===== */
+
+/* Container da tabela de rolos: scroll vertical + horizontal */
+.table-scroll-container--rolos {
+  max-height: 60vh;             /* altura máxima, responsivo (vh) */
+  overflow-y: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Adicionado CSS var para altura dinâmica do header-row-1 */
+  --header-row-1-height: 40px;  /* valor padrão, será sobrescrito via JavaScript */
+}
+
+/* wrapper pra podermos usar colunas sticky */
+.table-sticky-rolos {
+  position: relative;
+}
+
+/* Hierarquia de z-index corrigida: header-row-1 tem prioridade maior */
+.table-scroll-container--rolos thead .header-row-1 th {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #f3f4f6;
+  border-bottom: 2px solid #d1d5db;
+}
+
+/* header-row-2 agora usa altura dinâmica via CSS var e z-index menor */
+.table-scroll-container--rolos thead .header-row-2 th {
+  position: sticky;
+  top: var(--header-row-1-height);  /* altura dinâmica calculada via JS */
+  z-index: 39;
+  background: #f3f4f6;
+  border-bottom: 2px solid #d1d5db;
+  /* Adicionado background opaco para evitar gap visual */
+  background-clip: padding-box;
+}
+
+/* col-sticky-left (primeira coluna) com z-index superior para não ser coberta */
+.table-scroll-container--rolos .col-sticky-left {
+  position: sticky;
+  left: 0;
+  background: #f3f4f6;           /* mesmo background do header para blend perfeito */
+  z-index: 41;                   /* acima do header normal (39-40), abaixo da interseção */
+}
+
+/* Interseção header-row-1 + col-sticky-left tem z-index máximo */
+.table-scroll-container--rolos thead .header-row-1 .col-sticky-left {
+  z-index: 43;
+  background: #f3f4f6;
+}
+
+/* Interseção header-row-2 + col-sticky-left tem z-index máximo */
+.table-scroll-container--rolos thead .header-row-2 .col-sticky-left {
+  z-index: 42;
+  background: #f3f4f6;
+}
+
+/* col-sticky-right (última coluna - botão Limpar) */
+.table-scroll-container--rolos .col-sticky-right {
+  position: sticky;
+  right: 0;
+  background: #ffffff;
+  z-index: 38;
+}
+
+/* Interseção header + col-sticky-right */
+.table-scroll-container--rolos thead .col-sticky-right {
+  background: #f3f4f6;
+  /* Aumentado z-index para ficar acima da header-row-2 normal */
+  z-index: 43;
+}
+
+/* Dados na coluna sticky (td) têm background branco para não transparecer */
+.table-scroll-container--rolos tbody .col-sticky-left {
+  background: #ffffff;
+}
+
+.table-scroll-container--rolos tbody .col-sticky-right {
+  background: #ffffff;
+}
+
+/* Sombras melhoradas nas colunas fixas para melhor visualização */
+.table-scroll-container--rolos .col-sticky-left {
+  box-shadow: inset -8px 0 12px -8px rgba(0, 0, 0, 0.08);
+}
+
+.table-scroll-container--rolos .col-sticky-right {
+  box-shadow: inset 8px 0 12px -8px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsividade em mobile */
+@media (max-width: 768px) {
+  .table-scroll-container--rolos {
+    max-height: 50vh;
+  }
+}
+
+/* ===== Sticky header simples — Página 3 ===== */
+
+.table-scroll-container--p3 {
+  max-height: 65vh;            /* altura com scroll vertical */
+  overflow-y: auto;
+  overflow-x: hidden;           /* sem scroll lateral */
+  position: relative;
+}
+
+.table-scroll-container--p3 thead th {
+  position: sticky;
+  top: 0;
+  background: #f3f4f6;          /* fundo sólido */
+  z-index: 20;                  /* acima do tbody */
+  border-bottom: 2px solid #d1d5db;
+}

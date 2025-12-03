@@ -1,0 +1,231 @@
+/* New responsive design system with tablet-first approach */
+
+/* Tablet breakpoints and base responsive utilities */
+:root {
+  /* Tablet-first breakpoint hierarchy */
+  --tablet-width: 768px;
+  --desktop-width: 1024px;
+  --large-desktop-width: 1280px;
+}
+
+/* Modal and overlay responsive sizes */
+.modal-container {
+  max-width: 95vw;
+  max-width: clamp(300px, 95vw, 600px);
+}
+
+@media (min-width: 768px) {
+  .modal-container {
+    max-width: clamp(500px, 80vw, 800px);
+  }
+}
+
+/* Responsive table wrapper - allows horizontal scroll on smaller screens */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: var(--radius);
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
+.table-responsive table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+/* Tablet layout - better use of space */
+@media (min-width: 768px) {
+  .table-responsive {
+    overflow-x: visible;
+  }
+
+  .table-responsive table {
+    table-layout: auto;
+  }
+}
+
+/* Form grid responsive */
+.form-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Header responsive */
+.header-responsive {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .header-responsive {
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* Flexible button group */
+.button-group-responsive {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .button-group-responsive {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+}
+
+/* Matrix grid for buttons (A1-E4 etc) */
+.matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+@media (min-width: 640px) {
+  .matrix-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .matrix-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .matrix-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+}
+
+/* Input responsiveness */
+.input-responsive {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .input-responsive {
+    width: auto;
+  }
+}
+
+/* Card responsiveness */
+.card-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .card-stack {
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-stack {
+    grid-template-columns: 3fr 1fr;
+    gap: 24px;
+  }
+}
+
+/* Text sizes responsive */
+.text-responsive-title {
+  font-size: clamp(1.125rem, 5vw, 1.5rem);
+  line-height: 1.4;
+}
+
+.text-responsive-body {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+  line-height: 1.5;
+}
+
+/* Padding responsive */
+.p-responsive {
+  padding: 16px;
+}
+
+@media (min-width: 640px) {
+  .p-responsive {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .p-responsive {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .p-responsive {
+    padding: 32px;
+  }
+}
+
+/* Container responsive */
+.container-responsive {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 95%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    max-width: 1000px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-responsive {
+    max-width: 1280px;
+  }
+}

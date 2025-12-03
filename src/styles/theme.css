@@ -1,0 +1,53 @@
+:root{
+  --c-primary:#1C3659;
+  --c-primary-600:#1C3D59;
+  --c-accent:#91B7D9;
+  --c-muted:#556573;
+  --c-bg:#F0F2F2;
+
+  --radius:16px;
+  --space-1:4px;
+  --space-2:8px;
+  --space-3:12px;
+  --space-4:16px;
+  --space-5:20px;
+  --space-6:24px;
+
+    /* NOVO: offsets para sticky */
+  --sticky-toolbar-offset: 12px;          /* distância do topo da tela */
+  --sticky-table-header-offset: 88px;     /* onde o cabeçalho da tabela vai “grudar” */
+    /* altura aproximada do bloco: título + botões + abas */
+  --app-header-offset: 5.5rem;
+}
+
+html,body,#root{height:100%}
+body{
+  background:var(--c-bg);
+  color:#0f172a; /* slate-900 */
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* foco visível e consistente */
+:where(button, [href], input, select, textarea){
+  outline: none;
+}
+:where(button, [href], input, select, textarea):focus-visible{
+  box-shadow: 0 0 0 3px var(--c-accent);
+  border-radius: calc(var(--radius) - 8px);
+}
+
+/* cores utilitárias para usar via class */
+.bg-primary{ background:var(--c-primary) !important; }
+.bg-primary-600{ background:var(--c-primary-600) !important; }
+.bg-accent{ background:var(--c-accent) !important; }
+.text-primary{ color:var(--c-primary) !important; }
+.text-muted{ color:var(--c-muted) !important; }
+.border-primary{ border-color:var(--c-primary) !important; }
+
+@media (max-width: 768px){
+  /* em telas menores o cabeçalho costuma ficar um pouco mais alto */
+  :root{
+    --app-header-offset: 6.5rem;
+  }
+}
