@@ -14,10 +14,10 @@ Aplicacao fullstack para controle de inspecoes, com frontend em React/Vite e API
    STORAGE_DRIVER=local
    VITE_API_BASE=http://localhost:3500/api
    DB_HOST=localhost
-   DB_PORT=3306
+   DB_PORT=porta_do_banco
    DB_USER=seu_usuario
    DB_PASSWORD=sua_senha
-   DB_NAME=inspection_db
+   DB_NAME=nome_do_banco
    ```
 2. Instale dependencias: `npm install`.
 
@@ -38,7 +38,3 @@ Aplicacao fullstack para controle de inspecoes, com frontend em React/Vite e API
 - `uploads/`: arquivos salvos quando `STORAGE_DRIVER=local` (fora do versionamento).
 - `dist/`: build do frontend (fora do versionamento).
 
-## Boas praticas
-- Nao commitar `.env` ou credenciais; use variaveis de ambiente.
-- Mantenha `package-lock.json` para reprodutibilidade.
-- Limpe dados sensiveis de seeds/dumps antes de compartilhar.
